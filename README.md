@@ -325,6 +325,38 @@ left,keyword,right,translation
 
 ---
 
+### Dictionary Generation
+
+Generate a corpus-derived bilingual dictionary.
+
+```bash
+cargo run -p mixteco-cli -- dictionary corpus.csv
+```
+
+Example output:
+
+```text
+ñuu
+  pueblo               342
+  ciudad                91
+
+tnoo
+  palabra              222
+
+ndaa
+  verdad               118
+  verdadero             87
+```
+
+Optional frequency threshold:
+
+```bash
+cargo run -p mixteco-cli -- dictionary corpus.csv \
+  --min-frequency 100
+```
+
+---
+
 ## Dataset Citation
 
 If you use the Spanish–Mazatec or Spanish–Mixtec corpus, please cite the paper below.
