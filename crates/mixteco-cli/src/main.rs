@@ -3,7 +3,7 @@ use mixteco_corpus::{
     concordance, contexts, export_contexts, export_kwic, export_vocab, kwic, stats, top_words,
     vocabulary_stats, word_frequencies,
 };
-use mixteco_dictionary::translation_candidates;
+use mixteco_dictionary::{dictionary, translation_candidates};
 use mixteco_orthography::normalize;
 
 #[derive(Parser)]
@@ -86,6 +86,13 @@ enum Commands {
     Lexicon {
         file: String,
         word: String,
+    },
+
+    Dictionary {
+        file: String,
+
+        #[arg(short, long, default_value_t = 20)]
+        min_frequency: usize,
     },
 }
 
@@ -240,10 +247,41 @@ fn main() {
                 println!("Translation candidates for: {}", word);
                 println!();
 
+                println!(
+                    "{:<20} {:<8} {:<8} {:.4}",
+                    "Spanish", "Cooc", "Global", "Score"
+                );
+
+                println!();
+
                 for candidate in candidates.iter().take(25) {
-                    println!("{:<20} {}", candidate.spanish, candidate.score);
+                    println!(
+                        "{:<20} {:<8} {:<8} {:.4}",
+                        candidate.spanish,
+                        candidate.cooccurrences,
+                        candidate.global_frequency,
+                        candidate.score,
+                    );
                 }
             }
+            Err(err) => eprintln!("Error: {}", err),
+        },
+
+        Commands::Dictionary {
+            file,
+            min_frequency,
+        } => match dictionary(&file, min_frequency) {
+            Ok(entries) => {
+                for entry in entries.iter().take(100) {
+                    println!();
+                    println!("{} ({})", entry.lemma, entry.frequency);
+
+                    for candidate in entry.translations.iter().take(5) {
+                        println!("  {:<20} {:.2}", candidate.spanish, candidate.score,);
+                    }
+                }
+            }
+
             Err(err) => eprintln!("Error: {}", err),
         },
     }
