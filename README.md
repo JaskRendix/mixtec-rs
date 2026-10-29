@@ -104,10 +104,12 @@ Spanish-Mazatec and Spanish-Mixtec/
 ├── es-xtnNT(mextec) copy.csv
 ├── maqNT-es(Mazatec).csv
 ├── xtnNT-es(mextec).csv
+├── xtn-new-testament.csv
+├── xtn-constitution.csv
 └── README.md
 ```
 
-The toolkit has been tested on the Spanish–Mixtec corpus:
+The toolkit is primarily developed and tested using the Spanish–Mixtec corpus:
 
 ```text
 xtnNT-es(mextec).csv
@@ -118,6 +120,22 @@ containing approximately:
 - 15,597 sentence pairs
 - 450,000+ Mixtec tokens
 - 16,818 unique word forms
+
+### Corpus Composition
+
+The original `xtnNT-es(mextec).csv` corpus contains material from two domains:
+
+- New Testament (lines 1–8218)
+- Mexican Constitution (lines 8219–end)
+
+For domain-specific analysis, the corpus has been split into:
+
+```text
+xtn-new-testament.csv
+xtn-constitution.csv
+```
+
+The bilingual dictionary extraction examples in this repository are primarily evaluated using the New Testament corpus.
 
 ---
 
