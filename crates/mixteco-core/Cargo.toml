@@ -1,0 +1,9 @@
+[package]
+name = "mixteco-core"
+version.workspace = true
+edition.workspace = true
+
+[dependencies]
+unicode-normalization.workspace = true
+serde.workspace = true
+thiserror.workspace = true

@@ -1,0 +1,7 @@
+[package]
+name = "mixteco-phonology"
+version.workspace = true
+edition.workspace = true
+
+[dependencies]
+mixteco-core = { path = "../mixteco-core" }

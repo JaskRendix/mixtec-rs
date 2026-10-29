@@ -1,0 +1,12 @@
+[package]
+name = "mixteco-cli"
+version.workspace = true
+edition.workspace = true
+
+[dependencies]
+clap.workspace = true
+mixteco-core = { path = "../mixteco-core" }
+mixteco-xtn = { path = "../mixteco-xtn" }
+mixteco-orthography = { path = "../mixteco-orthography" }
+mixteco-corpus = { path = "../mixteco-corpus" }
+mixteco-dictionary = { path = "../mixteco-dictionary" }

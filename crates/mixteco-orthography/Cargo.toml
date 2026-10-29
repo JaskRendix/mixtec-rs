@@ -1,0 +1,9 @@
+[package]
+name = "mixteco-orthography"
+version.workspace = true
+edition.workspace = true
+
+[dependencies]
+mixteco-core = { path = "../mixteco-core" }
+unicode-normalization.workspace = true
+regex.workspace = true

@@ -1,0 +1,8 @@
+[package]
+name = "mixteco-search"
+version.workspace = true
+edition.workspace = true
+
+[dependencies]
+ahash.workspace = true
+mixteco-orthography = { path = "../mixteco-orthography" }

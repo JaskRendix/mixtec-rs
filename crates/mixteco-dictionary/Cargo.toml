@@ -1,0 +1,12 @@
+[package]
+name = "mixteco-dictionary"
+version.workspace = true
+edition.workspace = true
+
+[dependencies]
+mixteco-corpus = { path = "../mixteco-corpus" }
+mixteco-core = { path = "../mixteco-core" }
+mixteco-search = { path = "../mixteco-search" }
+
+ahash.workspace = true
+anyhow.workspace = true
